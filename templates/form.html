@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Evaluación</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="number"], select, input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 4px;
+            width: 100%;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .message {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Formulario de Evaluación</h1>
+        <form method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="name">Nombre Completo</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="process">Proceso de Evaluación</label>
+                <select id="process" name="process" required>
+                    <option value="Trabajo Práctico Grupal">Trabajo Práctico Grupal</option>
+                    <option value="Trabajo Práctico Individual">Trabajo Práctico Individual</option>
+                    <option value="Exámenes Sumativos">Exámenes Sumativos</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="total_score">Puntaje Total</label>
+                <input type="number" id="total_score" name="total_score" required>
+            </div>
+            <div class="form-group">
+                <label for="achieved_score">Puntaje Logrado</label>
+                <input type="number" id="achieved_score" name="achieved_score" required>
+            </div>
+            <div class="form-group">
+                <label for="file">Adjuntar Imagen</label>
+                <input type="file" id="file" name="file" accept="image/*" required>
+            </div>
+            <input type="submit" value="Enviar Formulario">
+        </form>
+
+        {% if message %}
+        <div class="message">
+            <p>{{ message }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
